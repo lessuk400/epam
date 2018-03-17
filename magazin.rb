@@ -20,8 +20,21 @@ class Magazin
   end
   def self.returnBucketPrice order
     #perevirka na nayvnist u bazi mae bytu tyt
+    flower = @@allFlowers.find {|obj| obj if obj.name == order.name &&  obj.type == order.type }
+    puts flower.price
 
-    @@allFlowers.find {|obj| obj.type == order.type && obj.name == obj.name}
-
+    price = flower.price*order.ammount
+    primaryCost = price
+    puts "Flowers cost: #{price}"
+    if order.special.include?("D")
+      price += Delivery.additionalCost primaryCost
+      puts "You have chosen delivery. Total cost: #{price}"
+    end
+    if order.special.include?("P")
+      price += Package.additionalCost primaryCost
+      puts "You have chosen package. Total cost: #{price}"
+    end
+    price
   end
+
 end

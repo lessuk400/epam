@@ -5,8 +5,7 @@ class Order
     @address = client_obj.address
   end
 
-  def makeOrder
-    Magazin.printAllFlowers
+  def makeOrder    
     puts "Type of flowers(R/A)"
     answer = gets.chomp
     if answer == "R"
@@ -23,7 +22,7 @@ class Order
     end
     @name = answer
     puts "Enter ammount: "
-    ammount = gets.to_i
+    @ammount = gets.to_i
     until(ammount >= 0)
       puts "Wrong answer. Try again"
       @ammount = gets.to_i
@@ -31,7 +30,7 @@ class Order
     puts "Special services(P - package, D - delivery. Use comma to separate(P, D))"
     @special = gets.chomp
     @price = Magazin.returnBucketPrice self
-    puts "Price is: #{@price}"
+
   end
 
   def test

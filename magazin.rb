@@ -21,8 +21,6 @@ class Magazin
   def self.returnBucketPrice order
     #perevirka na nayvnist u bazi mae bytu tyt
     flower = @@allFlowers.find {|obj| obj if obj.name == order.name &&  obj.type == order.type }
-    puts flower.price
-
     price = flower.price*order.ammount
     primaryCost = price
     puts "Flowers cost: #{price}"

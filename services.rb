@@ -32,7 +32,6 @@ end
 
 class Package < Services
   def self.additionalCost primaryCost
-    puts primaryCost
     super(primaryCost) * primaryCost * @@package_cost
   end
 end

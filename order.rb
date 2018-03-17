@@ -32,8 +32,4 @@ class Order
     @price = Magazin.returnBucketPrice self
 
   end
-
-  def test
-    puts self.class
-  end
 end

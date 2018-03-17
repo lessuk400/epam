@@ -5,7 +5,7 @@ class Order
     @address = client_obj.address
   end
 
-  def makeOrder    
+  def makeOrder
     puts "Type of flowers(R/A)"
     answer = gets.chomp
     if answer == "R"
@@ -23,12 +23,12 @@ class Order
     @name = answer
     puts "Enter ammount: "
     @ammount = gets.to_i
-    until(ammount >= 0)
+    until(ammount > 0)
       puts "Wrong answer. Try again"
       @ammount = gets.to_i
     end
     puts "Special services(P - package, D - delivery. Use comma to separate(P, D))"
-    @special = gets.chomp
+    @special = gets.chomp.upcase
     @price = Magazin.returnBucketPrice self
 
   end
